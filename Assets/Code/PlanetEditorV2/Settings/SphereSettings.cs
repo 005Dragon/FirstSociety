@@ -1,7 +1,4 @@
 ﻿using System;
-using Code.PlanetEditor.Filters;
-using Code.PlanetEditorV2.Filters;
-using UnityEditor;
 using UnityEngine;
 
 namespace Code.PlanetEditorV2.Settings

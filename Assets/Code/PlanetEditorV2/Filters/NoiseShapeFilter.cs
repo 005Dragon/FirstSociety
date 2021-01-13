@@ -1,6 +1,4 @@
-﻿using System;
-using Code.Metrics;
-using Code.PlanetEditor.Settings;
+﻿using Code.Metrics;
 using Code.PlanetEditorV2.Settings;
 using UnityEngine;
 

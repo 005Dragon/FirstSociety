@@ -13,6 +13,7 @@ namespace Code.PlanetEditorV2.Factories
         public PlanetModelFactory(PlanetGroundGenerator groundGenerator, PlanetWaterGenerator waterGenerator)
         {
             _groundGenerator = groundGenerator;
+            _waterGenerator = waterGenerator;
         }
     
         public void CreateModel(GameObject planet)
@@ -38,6 +39,12 @@ namespace Code.PlanetEditorV2.Factories
                     Altitude = stepGradientShapeFilter.StepHeight * i + model.Altitude.Min
                 };
             }
+
+            model.WaterLevel = new PlanetHeightLevel
+            {
+                Index = _waterGenerator.Settings.StepIndex,
+                Altitude = _waterGenerator.GetWaterLevelAltitude()
+            };
         }
     }
 }

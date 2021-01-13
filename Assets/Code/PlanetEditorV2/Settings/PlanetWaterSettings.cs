@@ -20,7 +20,7 @@ namespace Code.PlanetEditorV2.Settings
         [Range(0, 28)]
         public int StepIndex;
         
-        [Range(-0.99f, 0.99f)]
+        [Range(0, 0.99f)]
         public float Offset = 0.5f;
     }
 }

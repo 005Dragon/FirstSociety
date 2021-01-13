@@ -32,9 +32,16 @@ namespace Code.PlanetEditorV2.Generators
             _sphereGenerator.Initialize(DestroyImmediate);
         }
 
+        public float GetWaterLevelAltitude()
+        {
+            float stepHeight = PlanetGroundGenerator.StepGradientShapeFilter.StepHeight;
+            
+            return PlanetGroundGenerator.Altitude.Min + stepHeight * (Settings.StepIndex + Settings.Offset);
+        }
+
         protected override GameObject GenerateCore()
         {
-            _sphereGenerator.Settings = ConvertToSphereSettings(Settings);
+            _sphereGenerator.Settings = ConstructSphereSettings();
             Water = _sphereGenerator.Generate();
             Water.transform.parent = Planet.transform;
 
@@ -56,20 +63,16 @@ namespace Code.PlanetEditorV2.Generators
             return true;
         }
 
-        private SphereSettings ConvertToSphereSettings(PlanetWaterSettings planetWaterSettings)
+        private SphereSettings ConstructSphereSettings()
         {
-            float stepHeight = PlanetGroundGenerator.StepGradientShapeFilter.StepHeight;
-            
-            float radius = PlanetGroundGenerator.Altitude.Min + stepHeight * (planetWaterSettings.StepIndex + planetWaterSettings.Offset);
-
             return new SphereSettings
             {
-                Material = planetWaterSettings.Material,
-                Resolution = planetWaterSettings.Resolution,
-                SphereName = planetWaterSettings.WaterName,
-                SphereFaceName = planetWaterSettings.WaterFaceName,
+                Material = Settings.Material,
+                Resolution = Settings.Resolution,
+                SphereName = Settings.WaterName,
+                SphereFaceName = Settings.WaterFaceName,
                 SingleMesh = true,
-                Radius = radius
+                Radius = GetWaterLevelAltitude()
             };
         }
     }
