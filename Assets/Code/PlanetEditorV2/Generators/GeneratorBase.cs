@@ -23,11 +23,7 @@ namespace Code.PlanetEditorV2.Generators
 
             return null;
         }
-
-        public virtual void Initialize()
-        {
-        }
-
+        
         protected virtual void InitializeSettings()
         {
             Settings.OnUpdate = () => Generate();

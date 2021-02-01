@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Settings:
     Foldout: 1
+    Material: {fileID: 2100000, guid: 8df3894de26626a4b80542c7499da7ab, type: 2}
     SphereSettings:
       Foldout: 0
       SphereName: Ground
       SphereFaceName: GroundFace
-      Material: {fileID: 2100000, guid: 84a308b7907d02643ac063ca519caeca, type: 2}
+      Material: {fileID: 0}
       Resolution: 6
-      Radius: 250
+      Radius: 270
       SingleMesh: 0
     LowLevelNoiseSettings:
       Foldout: 0
@@ -109,17 +110,17 @@ MonoBehaviour:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.008975983
-          value: -0.02623427
-          inSlope: 0.10608163
-          outSlope: 0.10608163
+          time: 0.018287424
+          value: -0.070339754
+          inSlope: 0.22265787
+          outSlope: 0.22265787
           tangentMode: 34
           weightedMode: 0
           inWeight: 0
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.2913356
-          value: 0.0037188996
+          time: 0.35919145
+          value: 0.005565213
           inSlope: 0.013923668
           outSlope: 0.013923668
           tangentMode: 0
@@ -168,17 +169,17 @@ MonoBehaviour:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.003668666
-          value: -0.19697925
-          inSlope: 0
-          outSlope: 0
+          time: -0.06431228
+          value: -0.5635092
+          inSlope: 1.3997428
+          outSlope: 1.3997428
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0
+          outWeight: 0.44386575
         - serializedVersion: 3
-          time: 0.12721649
-          value: -0.034827933
+          time: 0.13156341
+          value: 0.055498935
           inSlope: 0.56665874
           outSlope: 0.56665874
           tangentMode: 0
@@ -219,23 +220,23 @@ MonoBehaviour:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0
-          value: -0.00018310547
-          inSlope: 0.03235469
-          outSlope: 0.03235469
+          time: 0.014409965
+          value: -0.13524391
+          inSlope: 0.18643352
+          outSlope: 0.18643352
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0.29418376
+          outWeight: 0.3732272
         - serializedVersion: 3
-          time: 0.22001942
-          value: 0.0027610757
-          inSlope: -0.0111464765
-          outSlope: -0.0111464765
+          time: 0.47491533
+          value: -0.0017568083
+          inSlope: -0.05621068
+          outSlope: -0.05621068
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.33333334
+          outWeight: 0.3099926
         - serializedVersion: 3
           time: 0.7781316
           value: 0.0409295
@@ -268,4 +269,33 @@ MonoBehaviour:
       StepsCount: 16
     ColourSettings:
       Foldout: 0
-      Color: {r: 0.28368637, g: 0.7075472, b: 0.3271593, a: 0}
+      Material: {fileID: 0}
+      Gradient:
+        serializedVersion: 2
+        key0: {r: 0, g: 0, b: 0, a: 1}
+        key1: {r: 0.4716981, g: 0.45953804, b: 0, a: 1}
+        key2: {r: 0.3803865, g: 0.6603774, b: 0.30215383, a: 0}
+        key3: {r: 0.52393764, g: 0.6320754, b: 0.18783373, a: 0}
+        key4: {r: 0.5566038, g: 0.4544881, b: 0.028880388, a: 0}
+        key5: {r: 1, g: 1, b: 1, a: 0}
+        key6: {r: 0, g: 0, b: 0, a: 0}
+        key7: {r: 0, g: 0, b: 0, a: 0}
+        ctime0: 17926
+        ctime1: 23516
+        ctime2: 31033
+        ctime3: 37972
+        ctime4: 42020
+        ctime5: 65535
+        ctime6: 0
+        ctime7: 0
+        atime0: 0
+        atime1: 65535
+        atime2: 0
+        atime3: 0
+        atime4: 0
+        atime5: 0
+        atime6: 0
+        atime7: 0
+        m_Mode: 0
+        m_NumColorKeys: 6
+        m_NumAlphaKeys: 2

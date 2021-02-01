@@ -6,6 +6,8 @@ namespace Code.PlanetEditorV2.Settings
     [Serializable]
     public class ColourSettings : EditorSettingsBase
     {
-        public Color Color;
+        public Material Material;
+        
+        public Gradient Gradient;
     }
 }

@@ -23,8 +23,7 @@ namespace Code.PlanetEditorV2.Generators
         public readonly StepGradientShapeFilter StepGradientShapeFilter;
 
         private readonly SphereGenerator _sphereGenerator;
-
-        private Material _material;
+        private readonly ColourFilter _colourFilter;
 
         public PlanetGroundGenerator()
         {
@@ -42,6 +41,8 @@ namespace Code.PlanetEditorV2.Generators
                 HighLevelNoiseShapeFilter,
                 StepGradientShapeFilter
             };
+
+            _colourFilter = new ColourFilter();
         }
         
         public void Initialize(GameObject planet, Action<GameObject> destroyImmediate)
@@ -67,7 +68,7 @@ namespace Code.PlanetEditorV2.Generators
 
             Altitude = _sphereGenerator.Magnitude;
             
-            UpdateColours();
+            _colourFilter.ApplyFilter();
 
             return Ground;
         }
@@ -89,16 +90,22 @@ namespace Code.PlanetEditorV2.Generators
 
         private void UpdateSettings()
         {
+            Material material = new Material(Settings.Material);
+            
+            Settings.ColourSettings.Material = material;
+            Settings.SphereSettings.Material = material;
+
             _sphereGenerator.Settings = Settings.SphereSettings;
             LowLevelNoiseFilter.Settings = Settings.LowLevelNoiseSettings;
             MiddleLevelNoiseFilter.Settings = Settings.MiddleLevelNoiseSettings;
             HighLevelNoiseShapeFilter.Settings = Settings.HighLevelNoiseSettings;
             StepGradientShapeFilter.Settings = Settings.StepGradientSettings;
+            _colourFilter.UpdateSettings(Settings.ColourSettings, Altitude);
         }
         
         private void UpdateColours()
         {
-            _sphereGenerator.Material.color = Settings.ColourSettings.Color;
+            //_sphereGenerator.Material.color = Settings.ColourSettings.Color;
         }
     }
     #endif

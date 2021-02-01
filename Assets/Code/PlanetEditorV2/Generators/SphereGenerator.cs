@@ -17,8 +17,6 @@ namespace Code.PlanetEditorV2.Generators
         
         public Range<float> Magnitude;
 
-        public Material Material;
-
         private GameObject[] _faces;
 
         public void Initialize(Action<GameObject> destroyImmediate)
@@ -60,8 +58,6 @@ namespace Code.PlanetEditorV2.Generators
                 }
             }
 
-            Material = new Material(Settings.Material);
-
             for (int i = 0; i < _faces.Length; i++)
             {
                 UpdateFace(_faces[i], meshes[i]);
@@ -77,7 +73,7 @@ namespace Code.PlanetEditorV2.Generators
             {
                 meshRender = face.AddComponent<MeshRenderer>();
             }
-            meshRender.sharedMaterial = Material;
+            meshRender.sharedMaterial = Settings.Material;
 
             var meshFilter = face.GetComponent<MeshFilter>();
             if (meshFilter == null)

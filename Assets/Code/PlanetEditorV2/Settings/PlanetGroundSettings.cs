@@ -7,6 +7,8 @@ namespace Code.PlanetEditorV2.Settings
     [Serializable]
     public class PlanetGroundSettings : EditorSettingsBase
     {
+        public Material Material;
+        
         public SphereSettings SphereSettings;
 
         public NoiseShapeSettings LowLevelNoiseSettings;
