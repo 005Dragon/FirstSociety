@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Settings:
     Foldout: 1
-    Material: {fileID: 2100000, guid: 8df3894de26626a4b80542c7499da7ab, type: 2}
+    Material: {fileID: 2100000, guid: 84a308b7907d02643ac063ca519caeca, type: 2}
     SphereSettings:
       Foldout: 0
       SphereName: Ground
@@ -274,28 +274,28 @@ MonoBehaviour:
         serializedVersion: 2
         key0: {r: 0, g: 0, b: 0, a: 1}
         key1: {r: 0.4716981, g: 0.45953804, b: 0, a: 1}
-        key2: {r: 0.3803865, g: 0.6603774, b: 0.30215383, a: 0}
-        key3: {r: 0.52393764, g: 0.6320754, b: 0.18783373, a: 0}
-        key4: {r: 0.5566038, g: 0.4544881, b: 0.028880388, a: 0}
-        key5: {r: 1, g: 1, b: 1, a: 0}
-        key6: {r: 0, g: 0, b: 0, a: 0}
+        key2: {r: 0.7075472, g: 0.6967075, b: 0.39048594, a: 1}
+        key3: {r: 0.3803865, g: 0.6603774, b: 0.30215383, a: 0}
+        key4: {r: 0.18551588, g: 0.509434, b: 0.16100036, a: 0}
+        key5: {r: 0.46226418, g: 0.41265318, b: 0.22895159, a: 0}
+        key6: {r: 1, g: 1, b: 1, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 17926
-        ctime1: 23516
-        ctime2: 31033
-        ctime3: 37972
-        ctime4: 42020
-        ctime5: 65535
-        ctime6: 0
+        ctime0: 17540
+        ctime1: 24672
+        ctime2: 31611
+        ctime3: 34117
+        ctime4: 37972
+        ctime5: 47609
+        ctime6: 65535
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 0
+        atime1: 32960
+        atime2: 65535
         atime3: 0
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 6
-        m_NumAlphaKeys: 2
+        m_NumColorKeys: 7
+        m_NumAlphaKeys: 3

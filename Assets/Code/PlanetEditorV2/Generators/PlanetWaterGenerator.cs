@@ -67,7 +67,7 @@ namespace Code.PlanetEditorV2.Generators
         {
             return new SphereSettings
             {
-                Material = Settings.Material,
+                Material = new Material(Settings.Material),
                 Resolution = Settings.Resolution,
                 SphereName = Settings.WaterName,
                 SphereFaceName = Settings.WaterFaceName,

@@ -18,10 +18,7 @@ namespace Code.PlanetEditorV2.Filters
             _settings = settings;
             _altitudeRange = altitude;
 
-            if (_texture == null)
-            {
-                _texture = new Texture2D(_textureResolution, height: 1);
-            }
+            _texture = new Texture2D(_textureResolution, height: 1);
         }
         
         public void ApplyFilter()

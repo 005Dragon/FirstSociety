@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Code.Utils
@@ -34,9 +35,37 @@ namespace Code.Utils
         
         private static void SaveMaterials(GameObject source, string targetFolder)
         {
-            var meshes = GetPrepareComponents<MeshRenderer, Material>(source, x => x.sharedMaterial);
-            
-            SaveComponents(meshes, targetFolder, "Materials", "mat");
+            List<(string, Material)> materials = GetPrepareComponents<MeshRenderer, Material>(source, x => x.sharedMaterial).ToList();
+
+            IEnumerable<(string, Texture)> textures = GetPrepareTextures(materials);
+
+            SaveComponents(textures, targetFolder, "Textures", "asset");
+            SaveComponents(materials, targetFolder, "Materials", "mat");
+        }
+
+        private static IEnumerable<(string, Texture)> GetPrepareTextures(IEnumerable<(string, Material)> materials)
+        {
+            HashSet<Texture> textures = new HashSet<Texture>();
+
+            foreach ((string, Material) material in materials)
+            {
+                string[] texturePropertyNames = material.Item2.GetTexturePropertyNames();
+
+                foreach (var texturePropertyName in texturePropertyNames)
+                {
+                    Texture texture = material.Item2.GetTexture(texturePropertyName);
+                    
+                    if (texture == null)
+                    {
+                        continue;
+                    }
+
+                    if (textures.Add(texture))
+                    {
+                        yield return ($"{material.Item1}{texturePropertyName}", texture);
+                    }
+                }
+            }
         }
 
         private static void SaveComponents<TValue>(
@@ -71,6 +100,11 @@ namespace Code.Utils
             foreach (TContainer container in containers)
             {
                 TValue value = getValue(container);
+
+                if (value == null)
+                {
+                    continue;
+                }
                 
                 if (values.Add(value))
                 {
@@ -78,49 +112,5 @@ namespace Code.Utils
                 }
             }
         }
-        //
-        // // TODO Вынести в отделный класс
-        // public void SavePrefab()
-        // {
-        //     // string folderPath = $"Assets/Components/Models/Planet{DateTime.Now.Ticks}";
-        //     // UnityEngine.Windows.Directory.CreateDirectory(folderPath);
-        //     //
-        //     // string meshesPath = $"{folderPath}/Meshes";
-        //     // UnityEngine.Windows.Directory.CreateDirectory(meshesPath);
-        //     //
-        //     // string filePath;
-        //     // MeshFilter meshFilter;
-        //     //
-        //     // for (int i = 0; i < _planetGroundGenerator._planetGroundFaces.Length; i++)
-        //     // {
-        //     //     meshFilter = _planetGroundGenerator._planetGroundFaces[i].GetComponent<MeshFilter>();
-        //     //
-        //     //     filePath = $"{meshesPath}/GroundFace{i}.asset";
-        //     //     
-        //     //     UnityEditor.AssetDatabase.CreateAsset(meshFilter.sharedMesh, filePath);
-        //     // }
-        //     //
-        //     // string materialsPath = $"{folderPath}/Materials";
-        //     // UnityEngine.Windows.Directory.CreateDirectory(materialsPath);
-        //     //
-        //     // filePath = $"{materialsPath}/GroundMaterial.mat";
-        //     // UnityEditor.AssetDatabase.CreateAsset(_planetGroundGenerator.GroundMaterial, filePath);
-        //     //
-        //     // filePath = $"{materialsPath}/WaterMaterial.mat";
-        //     // MeshRenderer meshRenderer = _planetWaterGenerator.Water.GetComponent<MeshRenderer>();
-        //     // UnityEditor.AssetDatabase.CreateAsset(meshRenderer.sharedMaterial, filePath);
-        //     //
-        //     // filePath = $"{meshesPath}/Water.asset";
-        //     //
-        //     // meshFilter = _planetWaterGenerator.Water.GetComponent<MeshFilter>();
-        //     //
-        //     // UnityEditor.AssetDatabase.CreateAsset(meshFilter.sharedMesh, filePath);
-        //     //
-        //     // UnityEditor.PrefabUtility.SaveAsPrefabAsset(Planet, $"{folderPath}/Planet.prefab");
-        //     //
-        //     // DestroyImmediate(Planet);
-        //     //
-        //     // Generate();
-        // }
     }
 }
